@@ -1,0 +1,292 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+
+}
+
+:root {
+    font-size: 62.5%;
+    --default: "Roboto", sans-serif
+}
+
+body {
+    font-size: 1.6rem;
+    background: #000000;
+}
+
+body * {
+    font-family: var(--default);
+}
+
+#app {
+
+    padding: 2rem;
+}
+
+header {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    margin: 2.5rem 0;
+
+}
+
+nav {
+    display: flex;
+    gap: .8rem;
+}
+
+#gitfav {
+    margin-right: 55rem;
+
+}
+
+#input-search {
+    margin-left: -13rem;
+    width: 40.2rem;
+    height: 4.8rem;
+    padding: 1.6rem;
+    border-radius: .5rem;
+    background: #06181C;
+    color: #7C7C8A;
+    border: none;
+
+}
+
+.favorite {
+    padding: 1.2rem;
+    padding-left: 2rem;
+    width: 17rem;
+    height: 4.8rem;
+    display: flex;
+    align-items: center;
+    gap: .8rem;
+    border-radius: .5rem;
+    background: #065E7C;
+    color: #FFFFFF;
+    font-weight: bold;
+    font-size: 1.4rem;
+    text-transform: uppercase;
+
+
+}
+
+.favorite:hover{
+    background: #FFFFFF;
+    color: #065E7C;
+    
+}
+
+.favorite:hover img {
+    filter: invert(100%);
+}
+
+.hide{
+    display: none;
+}
+
+
+
+#table1 {
+    margin: 8.7rem auto;
+    width: 65%;
+    border-collapse: collapse;
+    table-layout: fixed;
+    
+}
+
+#table1 tbody {
+    display: block;
+    /* Necessário para permitir a rolagem no tbody */
+    height: 68.8rem;
+    /* Defina a altura fixa que desejar */
+    overflow-y: auto;
+    /* Adiciona a barra de rolagem vertical */
+    width: 100%;
+    background: #06161B;
+
+}
+
+#table1 img {
+    width: 5rem;
+    height: 5rem;
+    object-fit: cover;
+    /*propriedade para cobrir um objeto caso não caiba no espaço definido*/
+    border-radius: 50%;
+}
+
+#table1 .user {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+
+}
+
+
+table {
+    margin: 8.7rem auto;
+    width: 65%;
+    border-collapse: collapse;
+    table-layout: fixed;
+}
+
+tbody {
+    display: block;
+    /* Necessário para permitir a rolagem no tbody */
+    height: 68.8rem;
+    /* Defina a altura fixa que desejar */
+    overflow-y: auto;
+    /* Adiciona a barra de rolagem vertical */
+    width: 100%;
+    background: #06161B;
+
+}
+
+thead,
+tbody tr {
+    display: table;
+    width: 100%;
+    table-layout: fixed;
+}
+
+::-webkit-scrollbar {
+    width: .5rem;
+    /* Largura da barra de rolagem */
+    height: .3rem;
+
+}
+
+::-webkit-scrollbar-track {
+    background: transparent;
+    /* Remove o fundo da trilha da barra de rolagem */
+}
+
+::-webkit-scrollbar-thumb {
+    background: #4A808C;
+    /* Cor do polegar da barra de rolagem */
+    border-radius: 10px;
+    /* Arredondar os cantos do polegar */
+}
+
+table * {
+    font-size: 1.4rem;
+    color: var(--text-color);
+    text-decoration: none;
+    color: #E1E1E6;
+
+}
+
+#special {
+    padding-left: 4.2rem;
+}
+
+
+
+table th {
+
+    background: #092D38;
+    text-align: left;
+    font-weight: normal;
+    padding: 1.5rem;
+
+
+}
+
+table th:first-child {
+    border-top-left-radius: 1rem;
+
+}
+
+table th:last-child {
+    border-top-right-radius: 1rem;
+}
+
+/* Arredondando os cantos inferiores */
+table td:first-child {
+    border-bottom-left-radius: 1rem;
+}
+
+table td:last-child {
+    border-bottom-right-radius: 1rem;
+}
+
+table td {
+    padding: 1.5rem;
+    text-align: left;
+
+}
+
+td.data {
+    margin-left: 2rem;
+    display: flex;
+    align-items: center;
+    gap: 1.6rem;
+}
+
+table tr:nth-child(odd) {
+    /*Nas linhas da tabela, pegue todas as linhas impares*/
+    background: #06161B;
+
+   
+}
+
+table tr:nth-child(even) {
+    /*Nas linhas da tabela, pegue todas as linhas pares*/
+    background: #092D38;
+    border: 1px solid #4A808C;
+
+}
+
+td img {
+    width: 5rem;
+    height: 5rem;
+    object-fit: cover;
+    /*propriedade para cobrir um objeto caso não caiba no espaço definido*/
+    border-radius: 50%;
+}
+
+td.user {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+
+}
+
+
+td a {
+    text-decoration: none;
+
+}
+
+td a p {
+    font-weight: bold;
+
+}
+
+
+td .remove {
+    background: none;
+    border: none;
+    color: red;
+    cursor: pointer;
+}
+
+#table1 img {
+    width: 13.2rem;
+    height: 12.5rem;
+}
+
+#hide h1 {
+    color: #4E5455;
+    font-size: 4rem;
+    line-height: 2.4rem;
+}
+
+#hide {
+    display: flex;
+    padding-top: 25rem;
+    padding-left: 28rem;
+    align-items: center;
+    border: none;
+}

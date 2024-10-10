@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GitFav</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap"
+        rel="stylesheet">
+    <script src="js/main.js" type="module" defer></script>
+</head>
+
+<body>
+    <div id="app">
+        <header>
+            <nav>
+                <img id="gitfav" src="images/Gitfav.svg" alt="GitFav">
+                <label for="input-search"></label>
+                <input id="input-search" placeholder="Digite o GitHub username que quer favoritar">
+                <button class="favorite"><img src="images/Vector.svg" alt="estrela">Favoritar</button>
+            </nav>
+        </header>
+        
+        <table id="table2">
+            <thead>
+                <tr>
+                    <th id="special">Users</th>
+                    <th>Repositories</th>
+                    <th>Followers</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- As linhas dos usuários favoritados serão inseridas aqui -->
+            </tbody>
+        </table>
+
+        <table id="table1">
+            <thead>
+                <tr>
+                    <th id="special">Users</th>
+                    <th>Repositories</th>
+                    <th>Followers</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr id="hide">
+                    <td style="text-align: center;">
+                        <img id="patrick" src="images/patrick_estrela.svg" alt="Patrick estrela">
+                    </td>
+                    <td colspan="3">
+                        <h1>Nenhum favorito ainda</h1>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</body>
+
+</html>
