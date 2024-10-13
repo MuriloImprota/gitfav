@@ -1,25 +1,25 @@
 import { githubUser } from "./githubUser.js";
 
-export class Favorites {
-    constructor(root) {
-        this.root = document.querySelector(root);
+export class Favorites { //Favorites class creation
+    constructor(root) { //class constructor with root parameter.
+        this.root = document.querySelector(root); //defining the root in html element, we call in main file
         this.load();
     }
 
-    load() {
-        this.users = JSON.parse(localStorage.getItem("@gitfav")) || [];
+    load() { //function to load localstorage data under the key gitfav
+        this.users = JSON.parse(localStorage.getItem("@gitfav")) || []; //if nothing is found in localStorage, it defaults do an empty array
         console.log(this.users);
 
         githubUser.search("MuriloImprota").then(user => console.log(user));
     }
 
-    saveData() {
+    saveData() { // function that Converts the this.users Array to a JSON String and store in localStorage
         localStorage.setItem("@gitfav", JSON.stringify(this.users));
     }
 
-    async add(username) {
+    async add(username) { //function to add user data to the table favorites
         try {
-            const userExists = this.users.find(user => user.login === username);
+            const userExists = this.users.find(user => user.login === username); 
             if (userExists) {
                 throw new Error("Usuário já cadastrado");
             }
@@ -29,7 +29,7 @@ export class Favorites {
                 throw new Error("Usuário não encontrado");
             }
 
-            this.users = [user, ...this.users];
+            this.users = [user, ...this.users]; //the new user is add to users list
             this.update();
             this.saveData();
         } catch (error) {
@@ -37,14 +37,14 @@ export class Favorites {
         }
     }
 
-    delete(user) {
+    delete(user) { //function to delete user data
         this.users = this.users.filter(entry => entry.login !== user.login);
         this.update();
         this.saveData();
     }
 }
 
-export class favoritesView extends Favorites {
+export class favoritesView extends Favorites { // View class inherit favorites attributes, and adding update and onAdd functions
     constructor(root) {
         super(root);
         this.tbody = this.root.querySelector("table tbody");
@@ -53,7 +53,7 @@ export class favoritesView extends Favorites {
        
     }
 
-    onAdd() {
+    onAdd() { // function to send data request through the button
         const addButton = this.root.querySelector(".favorite");
         addButton.onclick = () => {
             const { value } = this.root.querySelector("#input-search");
@@ -62,8 +62,8 @@ export class favoritesView extends Favorites {
     }
 
     update() {
-        this.removeAllTr();
-        this.toggleTables(); // Chama a função para alternar a visibilidade das tabelas
+        this.removeAllTr(); // call function removealltr after the update is settled
+        this.toggleTables(); // call function toggleTabbles after the update is settled
 
         this.users.forEach(user => {
             const row = this.createRow();
@@ -86,7 +86,7 @@ export class favoritesView extends Favorites {
         });
     }
 
-    createRow() {
+    createRow() {   //function to create the row structure
         const tr = document.createElement("tr");
         tr.innerHTML = `
             <td class="user">
@@ -105,25 +105,25 @@ export class favoritesView extends Favorites {
         return tr;
     }
 
-    removeAllTr() {
+    removeAllTr() {     //function to remove all tr rows in the table
         this.tbody.querySelectorAll("tr")
         .forEach(tr => tr.remove());
     }
 
-    toggleTables() {
-        this.removeAllTr();
-        const table2 = this.root.querySelector("#table2"); // Tabela de favoritos
-        const table1 = this.root.querySelector("#table1"); // Tabela "Nenhum favorito"
 
-        // Verifica se a lista de usuários está vazia
-        if (this.users.length === 0) {
-            table1.classList.remove("hide"); // Esconde a tabela de favoritos
-            table2.classList.add("hide"); // Mostra a tabela "Nenhum favorito"
+    toggleTables() { //function to switch tables, when a user is inserted or all removed
+        this.removeAllTr();
+        const table2 = this.root.querySelector("#table2"); // favorite table
+        const table1 = this.root.querySelector("#table1"); // "No favorite table"
+
+        // check if user list is empty
+        if (this.users.length === 0) { // if users list equals zero
+            table1.classList.remove("hide"); // Remove hide property on table 1
+            table2.classList.add("hide"); // add hide property on table 2
           
         } else{
-            table1.classList.add("hide"); // Esconde a tabela de favoritos
-            table2.classList.remove("hide"); // Mostra a tabela "Nenhum favorito"
-           
+            table1.classList.add("hide"); // add hide property on table 1
+            table2.classList.remove("hide"); // remove property hide on table 2
         }
     }
 
